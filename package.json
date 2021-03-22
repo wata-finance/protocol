@@ -1,0 +1,76 @@
+{
+  "name": "mint-debt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "TS_NODE_TRANSPILE_ONLY=1 hardhat test ./test/*.spec.ts",
+    "compile": "SKIP_LOAD=true hardhat compile --force",
+    "deploy": "hardhat compile --force && hardhat deploy:wata --network hecoTest",
+    "deploy-bscTest": "hardhat compile --force && hardhat deploy:wata --network bscTest",
+    "deploy-hardhat": "hardhat compile --force && hardhat deploy:wata",
+    "Upgrade:MLTC": "hardhat compile --force && hardhat Upgrade:MLTC --network hecoTest",
+    "Upgrade:Vault": "hardhat compile --force && hardhat Upgrade:Vault --network hecoTest",
+    "Upgrade:Staking": "hardhat compile --force && hardhat Upgrade:Staking --network hecoTest",
+    "Upgrade:LpStaking": "hardhat compile --force && hardhat Upgrade:LpStaking --network hecoTest",
+    "test-dev": "hardhat test",
+    "test-m": "hardhat compile --force && hardhat test test/__init.spec.ts test/mltc800-modifier.spec.ts",
+    "test-mltc800": "hardhat compile --force && hardhat test test/__init.spec.ts test/mltc800.spec.ts",
+    "test-mltc800husd-m": "hardhat compile --force && hardhat test test/__init.spec.ts test/LpStaking-lpstaing-modifier.spec.ts",
+    "test-mltc800staking-m": "hardhat compile --force && hardhat test test/__init.spec.ts test/mltc800staking-modifier.spec.ts",
+    "test-u": "hardhat compile --force && hardhat test test/__init.spec.ts test/upgrade.spec.ts",
+    "ci:clean": "rm -rf ./artifacts ./cache ./types",
+    "pretty-quick": "npx -p prettier@latest -p pretty-quick pretty-quick"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easy2mine/mint-debt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/easy2mine/mint-debt/issues"
+  },
+  "homepage": "https://github.com/easy2mine/mint-debt#readme",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "@openzeppelin/hardhat-upgrades": "^1.4.3",
+    "@types/mocha": "^8.2.0",
+    "@types/node": "14.0.5",
+    "chai": "^4.2.0",
+    "chai-bignumber": "^3.0.0",
+    "ethereum-waffle": "^3.2.1",
+    "ethers": "^5.0.24",
+    "hardhat": "^2.0.6",
+    "hardhat-gas-reporter": "^1.0.4",
+    "husky": "^4.3.8",
+    "prettier": "^2.2.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.3",
+    "pretty-quick": "^3.1.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5",
+    "web3": "^1.3.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.3.0",
+    "@openzeppelin/contracts-upgradeable": "^3.3.0",
+    "@openzeppelin/upgrades": "^2.8.0",
+    "@typechain/ethers-v5": "^5.0.0",
+    "@typechain/truffle-v5": "^4.0.0",
+    "@typechain/web3-v1": "^2.0.0",
+    "dotenv": "^8.2.0",
+    "hardhat-contract-sizer": "^2.0.2",
+    "hardhat-typechain": "^0.3.4",
+    "lowdb": "^1.0.0",
+    "ts-generator": "^0.1.1",
+    "typechain": "^4.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
